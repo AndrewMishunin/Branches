@@ -3,7 +3,7 @@
 #include <string>
 
 using namespace std;
-
+/*
 int main()
 {
 	int day_of_month = 0;
@@ -95,7 +95,6 @@ int newmain() {
 	}
 
 }
-
 void MoveStrings(vector<string> source, vector<string> destination) {
 	for (auto word : source)
 	{
@@ -103,7 +102,6 @@ void MoveStrings(vector<string> source, vector<string> destination) {
 	}
 	source.clear();
 }
-
 void reverse(vector<int>& v) {
 	int size = v.size();
 	int temp;
@@ -114,7 +112,6 @@ void reverse(vector<int>& v) {
 		v[size - i - 1] = temp; // запись в последнюю €чейку
 	}
 }
-
 vector<int> reversed(const vector<int>& v) {
 	vector<int> vcopy;
 	int size = v.size();
@@ -125,4 +122,7 @@ vector<int> reversed(const vector<int>& v) {
 	}
 	return vcopy;
 }
-
+*/
+int main() {
+	return 0;
+}
