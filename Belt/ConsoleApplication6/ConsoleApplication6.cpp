@@ -7,28 +7,70 @@
 #include <string>
 #include <random>
 #include <ctime>
+#include <fstream>
+
 using namespace std;
 
 int main()
-{
-	
+{	
+
+
+	srand(time(NULL));
+	setlocale(LC_ALL,"Russian");
 	mt19937 gen{ random_device()()};
-	gen.seed(time(0));
-	uniform_int_distribution<int> dist(65, 90);
+	gen.seed(time(NULL));
+	uniform_int_distribution<int> letters(65, 90);
+	uniform_int_distribution<int> chars(48,57);
     map<int, string> m;
-	for (int i = 0; i < 20; i++)
+	int a;
+	ofstream out;
+	for (int i = 0; i < 1000; i++)
 	{
-		cout << i + 1 << ": ";
-		for (int j = 0; j < 16; j++)
+
+		
+		for (int j = 0; j < 20; j++)
 		{
-			if (j!=0 and j%4==0)
+			if (j != 0 and j % 5 == 0)
 			{
 				m[i] += "-";
 			}
-			m[i] +=static_cast<char>(dist(gen));
+
+			if (rand()%2)
+			{
+				m[i] += static_cast<char>(chars(gen));
+			}
+			else {
+				m[i] += static_cast<char>(letters(gen));
+			}
 		}
-		cout << m[i] << "\n";
+		a = rand() % 10 - 5;
+		if (a==0)
+		{
+			a = a + 1;
+		}
+		
+		if (a>=0)
+		{
+			ofstream out;
+			out.open("D:\\Branches\\Test\\Codes.txt", ios::app);
+			out << i + 1 <<"	"<<": "<< m[i] << "	" << "  |  " <<"+ " << a << " חוכוםûץ באככמג ג ֱ׀ׁ" << "\n";
+			out.close();
+		}
+		else {
+			ofstream out;
+			out.open("D:\\Branches\\Test\\Codes.txt", ios::app);
+			out << i + 1 << "	"<< ": "<< m[i] << "	" << "  |  " <<"- " <<-a << " חוכוםûץ באככמג ג ֱ׀ׁ" << "\n";
+			out.close();
+		}
+		
 	}
+
+	
+	
+	return 0;
+
+
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
