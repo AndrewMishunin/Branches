@@ -2,8 +2,10 @@
 #include <map>
 #include <vector>
 #include <string>
+#include <chrono>
 
 using namespace std;
+using namespace std::chrono;
 
 
 void PrintMap(const map<int,string>& m) {
@@ -14,23 +16,52 @@ void PrintMap(const map<int,string>& m) {
 }
 
 
+void Swap(int &x,int&y) {
+	int tmp;
+	tmp = x;
+	x = y;
+	y = tmp;
+	cout << "This is meaning of x : " << x<< endl;
+	cout << "This is meaning of y : " << y;
+}
+
 int main()
 {
-	vector<string> words = { "anabolek","all","axe attacks","boolek","boolean","lolek" };
+	/*vector<string> words = { "anabolek","all","axe attacks","boolek","boolean","lolek","vector" };
 	map<char, vector<string>> groupped_words;
 	for (auto &word : words)
 	{
 		groupped_words[word[0]].push_back(word);
 	}
-	for (const auto& item : groupped_words)
+	auto start = steady_clock::now();
+	for (const  auto &item : groupped_words)
 	{
 		cout << item.first << endl;
-		for (const auto& word : item.second)
+		for (const auto &word : item.second)
 		{
 			cout << word << " ";
 		}
 		cout << endl;
 	}
+	auto end = steady_clock::now();
+	cout << endl;
+	cout << duration_cast<milliseconds>(end-start).count();
+	cout << endl;*/
+
+	int x, y;
+	
+	cin >> x >> y;
+	auto start = steady_clock().now();
+	Swap(x, y);
+	auto end = steady_clock().now();
+	cout << endl;
+	cout << duration_cast<nanoseconds>(end - start).count();
+	cout << endl;
+	cout << x + y;
+	cout << endl;
+	cout << x + y + 1;
+	cout << endl;
+	system("pause");
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
